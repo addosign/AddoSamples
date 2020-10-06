@@ -24,7 +24,6 @@ namespace AddoSamples
             // Select one below:
             var signingToken = CreateSigningRequest(configuration, context);
             PrintSigningDetails(context, signingToken);
-            //CreateSigningRequest(configuration, context);
             //ListOverview(configuration, context);
             //GetLatestCompletedSigning(configuration, context);
         }
