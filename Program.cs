@@ -39,7 +39,7 @@ namespace AddoSamples
 
         static void CreateSigningRequest(IConfiguration configuration, Context context)
         {
-            var template = new GetSigningTemplate(context).Execute("AddoSamplesTemplate");
+            var template = new GetSigningTemplate(context).Execute(configuration["Template"]);
             var recipient = new AddoRecipient
             {
                 Email = configuration["RecipientEmail"],
