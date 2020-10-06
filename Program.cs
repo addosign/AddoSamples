@@ -23,6 +23,7 @@ namespace AddoSamples
 
             // Select one below:
             var signingToken = CreateSigningRequest(configuration, context);
+            PrintSigningDetails(context, signingToken);
             //CreateSigningRequest(configuration, context);
             //ListOverview(configuration, context);
             //GetLatestCompletedSigning(configuration, context);
@@ -78,7 +79,6 @@ namespace AddoSamples
         {
             // I'm lying here. This will not be the latest completed signing.
             // This is the completed signing of the latest created signing.
-
             var overview = new GetOverview(context).Execute();
             var signing = overview.FirstOrDefault(x => x.State == AddoSigningState.Completed);
             if (signing == null)
@@ -87,7 +87,12 @@ namespace AddoSamples
                 return;
             }
 
-            var details = new GetSigningDetails(context).Execute(signing.Token);
+            PrintSigningDetails(context, signing.Token);
+        }
+
+        static void PrintSigningDetails(Context context, string signingToken)
+        {
+            var details = new GetSigningDetails(context).Execute(signingToken);
             Console.WriteLine("Signing token:    '{0}'", details.SigningToken);
             Console.WriteLine("Signing name:     '{0}'", details.Name);
             Console.WriteLine("Reference number: '{0}'", details.ReferenceNumber);
