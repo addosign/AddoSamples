@@ -40,7 +40,7 @@ namespace AddoSamples.Actions
                 var addoRequest = new AddoRequestModel<GetSigningsModel>(_context.Token, model);
                 var body = JsonConvert.SerializeObject(addoRequest);
                 var result = post.Execute(url, body).Result;
-                var raw = Encoding.UTF8.GetString(result).ConvertDatesFromAddo();
+                var raw = Encoding.UTF8.GetString(result);
                 var response = JsonConvert.DeserializeObject<GetSigningsResponseModel>(raw);
                 if (response == null || !response.Signings.Any())
                 {
