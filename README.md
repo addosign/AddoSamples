@@ -22,7 +22,7 @@ You need the following installed / configured:
 ## Build and run
 Clone the repository:
 ```
-git clone git@github.com:vismaaddo/AddoSamples.git
+git clone https://github.com/vismaaddo/AddoSamples.git
 cd AddoSamples
 dotnet restore
 ```
