@@ -22,6 +22,7 @@ namespace AddoSamples
             new Login(context).Execute(configuration["Email"], configuration["Password"]);
 
             // Select one below:
+            var signingToken = CreateSigningRequest(configuration, context);
             //CreateSigningRequest(configuration, context);
             //ListOverview(configuration, context);
             //GetLatestCompletedSigning(configuration, context);
@@ -37,7 +38,7 @@ namespace AddoSamples
                         .Build();
         }
 
-        static void CreateSigningRequest(IConfiguration configuration, Context context)
+        static string CreateSigningRequest(IConfiguration configuration, Context context)
         {
             var template = new GetSigningTemplate(context).Execute(configuration["Template"]);
             var recipient = new AddoRecipient
@@ -54,6 +55,7 @@ namespace AddoSamples
 
             var signingId = new CreateSigningRequest(context).Execute(template, signingData);
             Console.WriteLine("Signing Token of newly created signing request: {0}", signingId);
+            return signingId;
         }
 
         static void ListOverview(IConfiguration configuration, Context context)
