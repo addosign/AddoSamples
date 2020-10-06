@@ -8,12 +8,13 @@ namespace AddoSamples.RequestModels
     {
         public InitiateSigningModel(Guid templateId, AddoSigningData signingData)
         {
+            Name = "Addo Sample Test";
             SigningTemplateId = templateId;
             SigningData = signingData;
             StartDate = DateTime.Now.AddoDate();
         }
 
-        public string Name { get { return "Addo Sample Test"; } }
+        public string Name { get; set; }
         public Guid SigningTemplateId { get; set; }
         public string StartDate { get; set; }
         public AddoSigningData SigningData { get; set; }
