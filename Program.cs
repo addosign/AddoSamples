@@ -22,8 +22,8 @@ namespace AddoSamples
             new Login(context).Execute(configuration["Email"], configuration["Password"]);
 
             // Select one below:
-            var signingToken = CreateSigningRequest(configuration, context);
-            PrintSigningDetails(context, signingToken);
+            //var signingToken = CreateSigningRequest(configuration, context);
+            //PrintSigningDetails(context, signingToken);
             //ListOverview(configuration, context);
             //GetLatestCompletedSigning(configuration, context);
         }
