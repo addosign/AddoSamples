@@ -20,6 +20,13 @@ You need the following installed / configured:
 * Some git client to check out the code. In the instructions below I use the command-line git client.
 
 ## Build and run
+Clone the repository:
+```
+git clone git@github.com:vismaaddo/AddoSamples.git
+cd AddoSamples
+dotnet restore
+```
+
 Before building you must create the `credentials.json` file. This file should contain your Visma Addo account information:
 ```
 {
@@ -28,14 +35,7 @@ Before building you must create the `credentials.json` file. This file should co
 }
 
 ```
-This is a one-time thing. Please don't commit the file.
-
-Checkout the repository:
-```
-git clone git@github.com:vismaaddo/AddoSamples.git
-cd AddoSamples
-dotnet restore
-```
+This is a one-time thing. Please don't commit the file. Place the file next to `appsettings.json`.
 
 Open up `Program.cs`. Un-commment any or all of the method calls starting on line 24-ish depending on what you want to test.
 Then build and run:
