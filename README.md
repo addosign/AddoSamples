@@ -10,7 +10,7 @@ The following methods are demonstrated:
 * /GetSignings
 
 The samples here is bare minimum samples - they should be enough to get you going but they will not represent a full blown application.
-You should really have a look at the [Visma Addo API documentation](/APIDocumentation/ADDO-APIDocumentation-AddoWebService-250221-1341-6.pdf) to see what the API has to offer.
+You should really have a look at the [Visma Addo API documentation](/APIDocumentation/ADDO-APIDocumentation-AddoWebService-260221-1636-8.pdf) to see what the API has to offer.
 
 ## Prerequisites
 You need the following installed / configured:
