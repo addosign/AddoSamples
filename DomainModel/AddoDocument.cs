@@ -8,7 +8,7 @@ namespace AddoSamples.DomainModel
         {
             Data = documentData;
             Name = filename;
-            MimeType = "PDF";
+            MimeType = "application/pdf";
         }
 
         public byte[] Data { get; set; }
