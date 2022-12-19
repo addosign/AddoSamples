@@ -1,7 +1,7 @@
 # Addo Samples
 
 ## Introduction
-This repository contains a couple of methods to show how to communicate with the Visma Addo API.
+This repository contains a couple of methods to show how to communicate with the Addo Sign API.
 The following methods are demonstrated:
 * /Login
 * /InitiateSigning
@@ -13,7 +13,7 @@ The samples here is bare minimum samples - they should be enough to get you goin
 
 ## Prerequisites
 You need the following installed / configured:
-* A Visma Addo account (obviously).
+* A Addo Sign account (obviously).
 * A simple template on you account. This template should only have email notification and distribution enabled, no authentication and just touch signing. The template must be named _AddoSamplesTemplate_ - but that can be changed in the `appsettings.json` file (the *Template* key)
 * .NET Core, version 3.1.x - these samples have been tested using v3.1.401.
 * Some git client to check out the code. In the instructions below I use the command-line git client.
@@ -21,12 +21,12 @@ You need the following installed / configured:
 ## Build and run
 Clone the repository:
 ```
-git clone https://github.com/vismaaddo/AddoSamples.git
+git clone https://github.com/addosign/AddoSamples.git
 cd AddoSamples
 dotnet restore
 ```
 
-Before building you must create the `credentials.json` file. This file should contain your Visma Addo account information:
+Before building you must create the `credentials.json` file. This file should contain your Addo Sign account information:
 ```
 {
 	"Email": "your.email@somewhere.net",
