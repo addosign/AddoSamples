@@ -1,5 +1,4 @@
 using System;
-using System.Security.Cryptography;
 using System.Text;
 using AddoSamples.DomainModel;
 using AddoSamples.Http;
@@ -22,7 +21,7 @@ namespace AddoSamples.Actions
             var model = new LoginModel
             {
                 email = email,
-                password = HashedPassword(password),
+                password = password,
             };
 
             var url = $"{_context.BaseUrl}/Login";
@@ -35,16 +34,6 @@ namespace AddoSamples.Actions
             }
 
             _context.Token = token;
-        }
-
-        string HashedPassword(string password)
-        {
-            using (var sha512 = new SHA512Managed())
-            {
-                var pwdBytes = Encoding.UTF8.GetBytes(password);
-                var hash = sha512.ComputeHash(pwdBytes);
-                return Convert.ToBase64String(hash);
-            }
         }
     }
 }
