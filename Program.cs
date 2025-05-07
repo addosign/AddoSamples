@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using AddoSamples.Actions;
@@ -22,7 +23,7 @@ namespace AddoSamples
             new Login(context).Execute(configuration["Email"], configuration["Password"]);
 
             // Select one below:
-            //var signingToken = CreateSigningRequest(configuration, context);
+            var signingToken = CreateSigningRequest(configuration, context);
             //PrintSigningDetails(context, signingToken);
 
             //ListOverview(configuration, context);
@@ -56,8 +57,13 @@ namespace AddoSamples
             signingData.Documents.Add(new AddoDocument(document, filename));
             signingData.Recipients.Add(recipient);
 
+            var stopWatch = new Stopwatch();
+            stopWatch.Start();
             var signingId = new CreateSigningRequest(context).Execute(template, signingData);
+            stopWatch.Stop();
+            var ts = stopWatch.Elapsed;
             Console.WriteLine("Signing Token of newly created signing request: {0}", signingId);
+            Console.WriteLine("RunTime: {0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
             return signingId;
         }
 
