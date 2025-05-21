@@ -23,12 +23,12 @@ namespace AddoSamples
             new Login(context).Execute(configuration["Email"], configuration["Password"]);
 
             // Select one below:
-            var signingToken = CreateSigningRequest(configuration, context);
+            // var signingToken = CreateSigningRequest(configuration, context);
             //PrintSigningDetails(context, signingToken);
 
             //ListOverview(configuration, context);
 
-            //GetLatestCompletedSigning(configuration, context);
+            GetLatestCompletedSigning(configuration, context);
             // End-select
         }
 
@@ -105,9 +105,12 @@ namespace AddoSamples
             Console.WriteLine("Signing name:     '{0}'", details.Name);
             Console.WriteLine("Reference number: '{0}'", details.ReferenceNumber);
             Console.WriteLine("Documents:");
+            var docIdx = 1;
             foreach (var document in details.Documents)
             {
                 Console.WriteLine("\t{0}", document.Name);
+                File.WriteAllBytes($"c:\\temp\\{docIdx}-{document.Name}", document.Data);
+                docIdx++;
             }
             Console.WriteLine("Recipients:");
             foreach (var recipient in details.Recipients)
