@@ -109,8 +109,16 @@ namespace AddoSamples
             foreach (var document in details.Documents)
             {
                 Console.WriteLine("\t{0}", document.Name);
-                File.WriteAllBytes($"c:\\temp\\{docIdx}-{document.Name}", document.Data);
+                File.WriteAllBytes($"c:\\temp\\document-{docIdx}-{document.Name}", document.Data);
                 docIdx++;
+            }
+            Console.WriteLine("Enclosures:");
+            var encIdx = 1;
+            foreach (var enclosure in details.Enclosures)
+            {
+                Console.WriteLine("\t{0}", enclosure.Name);
+                File.WriteAllBytes($"c:\\temp\\enclosure-{encIdx}-{enclosure.Name}", enclosure.Data);
+                encIdx++;
             }
             Console.WriteLine("Recipients:");
             foreach (var recipient in details.Recipients)
