@@ -4,5 +4,6 @@ namespace AddoSamples.DomainModel
     {
         public string Name { get; set; }
         public string Email { get; set; }
+        public AddoFeedbackForm SimpleQuestions { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace AddoSamples
 
             // Select one below:
             // var signingToken = CreateSigningRequest(configuration, context);
-            //PrintSigningDetails(context, signingToken);
+            PrintSigningDetails(context, "209af068-419e-4e74-ac11-c396f527f1ee");
 
             //ListOverview(configuration, context);
 
@@ -121,9 +121,17 @@ namespace AddoSamples
                 encIdx++;
             }
             Console.WriteLine("Recipients:");
+            var ffIdx = 1;
             foreach (var recipient in details.Recipients)
             {
                 Console.WriteLine("\t{0}", recipient.Name);
+                if (recipient.SimpleQuestions != null)
+                {
+                    var feedbackForm = recipient.SimpleQuestions;
+                    Console.WriteLine("\tFeedback Form: {0}", feedbackForm.Name);
+                    File.WriteAllBytes($"c:\\temp\\feedbackform-{ffIdx}-{feedbackForm.Name}", feedbackForm.Data);
+                    ffIdx++;
+                }
             }
         }
     }
